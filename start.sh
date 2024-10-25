@@ -9,4 +9,5 @@ else
 fi
 
 # Inicia el servicio
-exec ./start.sh
+exec /app/start.sh  # Cambiado para usar el script correcto del servicio
+
