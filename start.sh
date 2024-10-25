@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# Decodifica la licencia y guárdala como un archivo
-if [ -n "$LICENSE_BASE64" ]; then
-    echo "$LICENSE_BASE64" | base64 -d > /app/extBin/unix/regula.license
-else
-    echo "ERROR: LICENSE_BASE64 no está configurada."
+# Verifica si el archivo de licencia existe
+if [ ! -f /app/extBin/unix/regula.license ]; then
+    echo "ERROR: No se encontró el archivo de licencia."
     exit 1
 fi
 
 # Inicia el servicio
-exec /app/start.sh  # Cambiado para usar el script correcto del servicio
+exec /app/start.sh
+
 
